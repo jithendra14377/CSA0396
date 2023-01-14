@@ -1,0 +1,51 @@
+#include<stdio.h>
+#include<stdlib.h>
+int a[100],n,i;
+
+void input(){
+	printf("entre the no of elemments:");
+	scanf("%d",&n);
+	printf("enter the elements:\n");
+	for(i=0;i<n;i++)
+	  scanf("%d",&a[i]);
+}
+
+void arrins(){
+	int pos=3,ele=90;
+	for(i=n;i>pos;i--){
+		a[i]=a[i-1];
+	}
+	a[pos]=ele;
+}
+
+void arrdel(){
+	int pos=3;
+	for(i=pos;i<n;i++)
+	   a[i]=a[i+1];
+}
+void arrdis(){
+	for(i=0;i<n;i++)
+	    printf("%d\t",a[i]);
+}
+
+int main()
+{
+	int cho;
+	input();
+	do
+	{
+		printf("\n**menu**\n");
+		printf("\n1.insertion\n2.deletion\n3.display\n4.exit\n");
+		printf("enter the choice:");
+		scanf("%d",&cho);
+		switch(cho)
+		{
+			case 1:arrins();break;
+			case 2:arrdel();break;
+			case 3:arrdis();break;
+			case 4:exit (0);
+			default:printf("enter the no b/w 1 to 4:");
+		}
+	}while(cho >0 && cho<=4);
+	return 0;
+}
